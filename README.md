@@ -1,131 +1,162 @@
-📌 Project Overview
-
-This project presents an HR Attrition Analytics Dashboard built using Power BI to analyze employee attrition patterns and identify key factors influencing employee turnover.
-
-The dashboard provides insights into attrition trends based on department, salary, experience, and satisfaction levels, helping organizations make data-driven HR decisions.
-
-🎯 Objectives
-
-Analyze overall attrition rate
-
-Identify high-risk departments
-
-Understand impact of:
-
-Salary
-
-Experience
-
-Employee satisfaction
-
-Provide interactive filtering for better decision-making
-
-📁 Dataset
-
-The dataset contains employee-related information such as:
-
-Employee ID
-
-Department
-
-Age
-
-Gender
-
-Salary
-
-Experience
-
-Satisfaction Level
-
-Attrition Flag
-
-📊 Dashboard Features
-
-🔹 KPI Metrics
-
-Attrition Rate: 16.12%
-
-Total Employees: 1470
-
-Employees Left: 237
-
-Average Salary: 6,502.93
-
-🔹 Visualizations
-
-Attrition Rate by Department
-
-Attrition Rate by Salary Group
-
-Attrition Rate by Experience Level
-
-Attrition by Satisfaction Group (Donut Chart)
-
-🔹 Interactive Filters (Slicers)
-
-Department
-
-Salary Group
-
-Gender
-
-Age Range
-
-These slicers allow users to dynamically explore the data.
-
-🛠️ Tools & Technologies
-
-Power BI Desktop
-
-Data Modeling
-
-DAX (for calculated measures)
-
-Data Visualization Techniques
-
-📈 Key Insights
-
-Higher attrition observed in certain departments (e.g., Sales)
-
-Employees with low satisfaction show higher attrition
-
-Attrition varies across experience levels
-
-Salary groups influence employee retention trends
-
-🎨 Design Highlights
-
-Clean and structured layout
-
-Consistent blue theme
-
-KPI cards for quick insights
-
-Balanced use of charts and slicers
-
-🚀 Future Improvements
-
-Add Attrition by Gender analysis
-
-Implement dynamic titles
-
-Add tooltip pages for deeper insights
-
-Apply conditional formatting for KPIs
-
-📷 Dashboard Preview
-
-(Screenshot 2026-06-24 122922 )
-
-📌 Conclusion
-
-This dashboard helps HR teams quickly identify attrition patterns and supports strategic decision-making to improve employee retention.
-
-👤 Author
-
-[Pavithra padala]
-
-Aspiring Data Analyst
-
-Skilled in Power BI, Excel, and Data Visualization
+# HR Attrition Analysis Project
+
+An end-to-end data analysis project to identify key drivers of employee turnover using Excel, SQL Server, Python, and Power BI.
+
+---
+
+## 📌 Objective
+
+Analyze employee attrition data to uncover patterns and key factors influencing employee turnover — including salary, department, experience, and job satisfaction — and present actionable insights through an interactive dashboard.
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **Excel** — Data cleaning, feature engineering, pivot analysis
+- **SQL Server** — Data querying and aggregation
+- **Python** — Exploratory data analysis and visualization (`pandas`, `numpy`, `matplotlib`, `seaborn`)
+- **Power BI** — Interactive dashboard
+
+---
+
+## 📊 Dataset Overview
+
+- **Source:** IBM HR Analytics Employee Attrition dataset
+- **Records:** 1,470 employees
+- **Target Variable:** `Attrition` (Yes / No)
+- **Overall Attrition Rate:** ~16.1% (237 out of 1,470 employees)
+
+### Cleaned Dataset Columns
+
+| Column | Description |
+|--------|-------------|
+| `EmployeeNumber` | Unique employee ID |
+| `Age` | Employee age |
+| `Attrition` | Whether the employee left (Yes / No) |
+| `Department` | Sales / Research & Development / Human Resources |
+| `Gender` | Male / Female |
+| `Satisfaction` | Job satisfaction score (1–4) |
+| `MaritalStatus` | Single / Married / Divorced |
+| `Salary` | Monthly income |
+| `Experience` | Total working years |
+| `Attrition_Flag` | Binary: 1 = left, 0 = stayed |
+| `Salary_Group` | Low (< 3K) / Medium (3K–7K) / High (> 7K) |
+| `Experience_Group` | Fresher (< 5 yrs) / Medium (5–10 yrs) / Experienced (10+ yrs) |
+| `Satisfaction_Group` | Low (≤ 2) / High (> 2) |
+
+---
+
+## 🔍 Analysis Performed
+
+### Excel Data Cleaning
+- Reduced 35 raw columns to 13 relevant features
+- Created derived columns using Excel IF formulas for grouping
+- Pivot table summaries:
+  - Overall attrition rate: **16.1%**
+  - By Department: Sales **20.6%**, HR **19.0%**, R&D **13.8%**
+  - By Salary: Low **28.6%**, Medium **12.0%**, High **10.8%**
+  - By Experience: Fresher **32.9%**, Medium **16.6%**, Experienced **10.7%**
+  - By Satisfaction: Low **19.7%**, High **13.9%**
+
+### SQL Analysis
+- Overall attrition rate calculation
+- Department-wise attrition breakdown
+- Attrition by salary group
+- Attrition by experience group
+- Attrition by satisfaction group
+- Combined salary × satisfaction attrition matrix
+
+### Python EDA
+- Dataset shape, data types, and missing value checks
+- Attrition count distribution
+- Department-wise attrition rates (bar chart)
+- Salary group vs attrition (bar chart)
+- Age group vs attrition — `18–30`, `30–40`, `40–50`, `50+`
+- Experience group vs attrition (line chart)
+- Satisfaction group vs attrition (pie chart)
+- Salary × Satisfaction combined attrition (grouped bar chart)
+
+### Power BI Dashboard
+- KPI cards: Total Employees, Attrition Count, Attrition Rate
+- Bar charts: Department-wise and Salary-wise attrition
+- Experience and Satisfaction breakdowns
+- Slicers for Department, Salary Group, and Satisfaction filters
+
+---
+
+## 📊 Dashboard Preview
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│              HR ATTRITION ANALYSIS DASHBOARD                        │
+│  [ Department ▼ ]  [ Salary Group ▼ ]  [ Satisfaction ▼ ]          │
+├──────────────┬──────────────┬──────────────┬────────────────────────┤
+│  👥 Total    │  🚪 Attrited │  📉 Attrition│  📊 Dept. Attrition   │
+│  Employees   │  Employees   │  Rate        │  ┌──────────────────┐  │
+│    1,470     │     237      │   16.1%      │  │ Sales       20.6%│  │
+│              │              │              │  │ HR          19.0%│  │
+│              │              │              │  │ R&D         13.8%│  │
+│              │              │              │  └──────────────────┘  │
+├──────────────┴──────────────┴──────────────┼────────────────────────┤
+│  💰 Attrition by Salary Group              │  🎓 By Experience      │
+│  ┌─────────────────────────────────────┐   │  ┌──────────────────┐  │
+│  │ Low   ████████████████████  28.6%  │   │  │ Fresher    32.9% │  │
+│  │ Med   ███████          12.0%       │   │  │ Medium     16.6% │  │
+│  │ High  ██████           10.8%       │   │  │ Experienced 10.7%│  │
+│  └─────────────────────────────────────┘   │  └──────────────────┘  │
+├────────────────────────────────────────────┴────────────────────────┤
+│  😊 Attrition by Satisfaction    │  Salary × Satisfaction Matrix    │
+│  Low  ████████████  19.7%        │  ┌──────────┬──────┬─────────┐  │
+│  High ████████      13.9%        │  │          │ Low  │  High   │  │
+│                                  │  │ Low Sal  │ 35%  │  22%    │  │
+│                                  │  │ Med Sal  │ 18%  │   8%    │  │
+│                                  │  │ High Sal │ 14%  │   9%    │  │
+│                                  │  └──────────┴──────┴─────────┘  │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Dashboard Features
+- **KPI Cards** — Instant snapshot of total employees, attritions, and rate
+- **Department Bar Chart** — Compare attrition across Sales, HR, and R&D
+- **Salary Group Chart** — Visualize how income level affects turnover
+- **Experience Group Chart** — Track retention across career stages
+- **Satisfaction Breakdown** — Gauge the impact of job satisfaction
+- **Cross-Analysis Matrix** — Salary × Satisfaction combined view
+- **Interactive Slicers** — Filter all visuals by department, salary, and satisfaction
+
+---
+
+## 🏗️ Project Workflow
+
+```
+Raw Data (CSV)
+     │
+     ▼
+Excel – Data Cleaning & Feature Engineering
+     │
+     ▼
+SQL Server – Aggregations & Attrition Queries
+     │
+     ▼
+Python – EDA, Visualizations & Insights
+     │
+     ▼
+Power BI – Interactive Dashboard
+```
+
+---
+
+## 💡 Key Insights
+
+- **Freshers leave the most** — Employees with under 5 years experience have a ~33% attrition rate, nearly 3× the company average.
+- **Sales is the highest-risk department** — 20.6% attrition vs. 13.8% in R&D.
+- **Low salary drives turnover** — Employees in the Low salary band leave at 28.6%, vs. just 10.8% in the High band.
+- **Low satisfaction doubles the risk** — Low satisfaction group (19.7%) vs. High satisfaction group (13.9%).
+- **Worst combination** — Low salary + Low satisfaction produces the highest attrition rates across all segments.
+
+---
+
+## 👤 Author
+
+**Pavithra**  
+Data Analyst | Excel • SQL • Python • Power BI
