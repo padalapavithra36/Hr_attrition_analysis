@@ -10,6 +10,18 @@ Analyze employee attrition data to uncover patterns and key factors influencing 
 
 ---
 
+## 🗂️ Project Overview
+
+This project follows a complete data analysis lifecycle:
+
+- **Data Collection** — Used the IBM HR Analytics Employee Attrition dataset containing 1,470 employee records
+- **Data Cleaning** — Removed irrelevant columns, handled inconsistencies, and engineered new features using Excel
+- **Data Analysis** — Wrote SQL queries to extract attrition trends across departments, salary bands, experience levels, and satisfaction groups
+- **Visualization** — Built Python charts (bar, line, pie, grouped bar) to explore relationships between variables
+- **Dashboard** — Designed an interactive Power BI dashboard to present all findings in one place
+
+---
+
 ## 🛠️ Tools & Technologies
 
 - **Excel** — Data cleaning, feature engineering, pivot analysis
@@ -26,31 +38,17 @@ Analyze employee attrition data to uncover patterns and key factors influencing 
 - **Target Variable:** `Attrition` (Yes / No)
 - **Overall Attrition Rate:** ~16.1% (237 out of 1,470 employees)
 
-### Cleaned Dataset Columns
-
-| Column | Description |
-|--------|-------------|
-| `EmployeeNumber` | Unique employee ID |
-| `Age` | Employee age |
-| `Attrition` | Whether the employee left (Yes / No) |
-| `Department` | Sales / Research & Development / Human Resources |
-| `Gender` | Male / Female |
-| `Satisfaction` | Job satisfaction score (1–4) |
-| `MaritalStatus` | Single / Married / Divorced |
-| `Salary` | Monthly income |
-| `Experience` | Total working years |
-| `Attrition_Flag` | Binary: 1 = left, 0 = stayed |
-| `Salary_Group` | Low (< 3K) / Medium (3K–7K) / High (> 7K) |
-| `Experience_Group` | Fresher (< 5 yrs) / Medium (5–10 yrs) / Experienced (10+ yrs) |
-| `Satisfaction_Group` | Low (≤ 2) / High (> 2) |
-
 ---
 
 ## 🔍 Analysis Performed
 
 ### Excel Data Cleaning
 - Reduced 35 raw columns to 13 relevant features
-- Created derived columns using Excel IF formulas for grouping
+- Created derived columns using Excel IF formulas:
+  - `Attrition_Flag` — binary encoding (1 = left, 0 = stayed)
+  - `Salary_Group` — Low (< 3K) / Medium (3K–7K) / High (> 7K)
+  - `Experience_Group` — Fresher (< 5 yrs) / Medium (5–10 yrs) / Experienced (10+ yrs)
+  - `Satisfaction_Group` — Low (≤ 2) / High (> 2)
 - Pivot table summaries:
   - Overall attrition rate: **16.1%**
   - By Department: Sales **20.6%**, HR **19.0%**, R&D **13.8%**
